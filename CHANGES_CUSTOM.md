@@ -35,3 +35,12 @@ This document tracks changes made to the official Moodle App codebase to support
 - **Change:** Populated "sites" array.
 - **Value:** `[{"url": "https://learn.darassa.academy", "name": "Darassa Academy"}]`
 - **Reason:** To force the application to connect solely to the specific Darassa Academy Moodle instance, bypassing the site entry screen.
+
+- **Change:** Updated "appname".
+- **Value:** `"Darassa Academy"`
+- **Reason:** To brand the application as "Darassa Academy".
+
+### `config.xml`
+- **Change:** Updated `<name>` and `<description>`.
+- **Value:** Name: "Darassa Academy", Description: "Darassa Academy official app"
+- **Reason:** To update the app name and description in the Cordova configuration for build purposes.
