@@ -1,5 +1,5 @@
 {
-    "app_id": "com.moodle.moodlemobile",
+    "app_id": "com.darassa.academy",
     "appname": "Darassa Academy",
     "versioncode": 51001,
     "versionname": "5.1.0",
@@ -86,7 +86,7 @@
         "medium": 110,
         "high": 120
     },
-    "customurlscheme": "moodlemobile",
+    "customurlscheme": "darassaacademy",
     "sites": [
         {
             "url": "https://learn.darassa.academy",
@@ -106,7 +106,7 @@
     "showTopLogo": "hidden",
     "ioswebviewscheme": "moodleappfs",
     "appstores": {
-        "android": "com.moodle.moodlemobile",
+        "android": "com.darassa.academy",
         "ios": "id633359593"
     },
     "wsrequestqueuelimit": 10,

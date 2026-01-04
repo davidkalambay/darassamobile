@@ -44,3 +44,8 @@ This document tracks changes made to the official Moodle App codebase to support
 - **Change:** Updated `<name>` and `<description>`.
 - **Value:** Name: "Darassa Academy", Description: "Darassa Academy official app"
 - **Reason:** To update the app name and description in the Cordova configuration for build purposes.
+
+### App ID & Scheme
+- **Change:** Updated App ID to `com.darassa.academy` and URL Scheme to `darassaacademy`.
+- **Files Modified:** `moodle.config.json`, `config.xml`.
+- **Reason:** To distinctively identify the application and prevent conflicts with the official Moodle app.
