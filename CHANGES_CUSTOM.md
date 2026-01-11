@@ -81,3 +81,17 @@ This document tracks changes made to the official Moodle App codebase to support
 ### `NOTIFICATIONS_FCM_SETUP.md`
 - **Change:** Created a guide for setting up Firebase Cloud Messaging (FCM).
 - **Reason:** To provide a cost-effective alternative to the default notification system (Airnotifier) which may require a subscription for high volume.
+## 7. Bug Fixes
+
+### Android Navigation Overlay Fix
+- **Change:** Enabled `AndroidEdgeToEdge` preference in `config.xml`.
+- **Change:** Updated `src/core/features/mainmenu/pages/menu/menu.scss` to dynamically calculate tab bar height including `safe-area-bottom`.
+- **Change:** Removed deprecated `ion-app` padding hack in `src/theme/globals.scss`.
+- **Reason:** To prevent the bottom navigation menu from being hidden behind the Android system navigation bar on newer Android versions (edge-to-edge mode).
+
+## 8. Localization
+### `moodle.config.json`
+- **Change:** Updated `default_lang`.
+- **Value:** `"fr"`
+- **Change:** Set `forcedefaultlanguage` to `true`.
+- **Reason:** To enforce French as the application language regardless of the device's system language Settings.

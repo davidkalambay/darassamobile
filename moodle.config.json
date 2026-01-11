@@ -7,7 +7,7 @@
     "cache_update_frequency_often": 1200000,
     "cache_update_frequency_sometimes": 3600000,
     "cache_update_frequency_rarely": 43200000,
-    "default_lang": "en",
+    "default_lang": "fr",
     "languages": {
         "af": "Afrikaans",
         "ar": "العربية",
@@ -96,7 +96,7 @@
     "multisitesdisplay": "",
     "sitefindersettings": {},
     "onlyallowlistedsites": false,
-    "forcedefaultlanguage": false,
+    "forcedefaultlanguage": true,
     "privacypolicy": "https://moodle.net/moodle-app-privacy/",
     "notificoncolor": "#7D256C",
     "enableanalytics": false,
