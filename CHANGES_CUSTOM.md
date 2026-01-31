@@ -29,3 +29,69 @@ This document tracks changes made to the official Moodle App codebase to support
 ## 3. Deployment Notes
 - **Android Runtime:** Requires `native-run` to be installed globally (`npm install -g native-run`).
 - **Environment Variables:** `JAVA_HOME` (JDK 17) and `ANDROID_HOME` must be correctly set in the system Path for `ionic cordova run android` to work.
+
+## 4. Branding & Site Configuration
+### `moodle.config.json`
+- **Change:** Populated "sites" array.
+- **Value:** `[{"url": "https://learn.darassa.academy", "name": "Darassa Academy"}]`
+- **Reason:** To force the application to connect solely to the specific Darassa Academy Moodle instance, bypassing the site entry screen.
+
+- **Change:** Updated "appname".
+- **Value:** `"Darassa Academy"`
+- **Reason:** To brand the application as "Darassa Academy".
+
+### `config.xml`
+- **Change:** Updated `<name>` and `<description>`.
+- **Value:** Name: "Darassa Academy", Description: "Darassa Academy official app"
+- **Reason:** To update the app name and description in the Cordova configuration for build purposes.
+
+### App ID & Scheme
+- **Change:** Updated App ID to `com.darassa.academy` and URL Scheme to `darassaacademy`.
+- **Files Modified:** `moodle.config.json`, `config.xml`.
+- **Reason:** To distinctively identify the application and prevent conflicts with the official Moodle app.
+
+### Branding (Colors)
+- **Change:** Updated `$brand-color` in `globals.variables.scss` and `"notificoncolor"` in `moodle.config.json`.
+- **Value:** `#7D256C` (Darassa Purple)
+- **Reason:** Extracted from the provided Darassa Academy logo.
+
+### Branding (Images)
+- **Change:** Replaced `resources/icon.png` and `resources/splash.png`.
+- **Reason:** Updated with the new Darassa Academy assets (Symbol for Icon, Full Logo for Splash).
+
+### `src/index.html`
+- **Change:** Updated `<title>` tag.
+- **Value:** "Darassa Academy"
+- **Reason:** To display the correct app name in the browser tab.
+
+### UI & Icons (Premium Design)
+- **Change:** Custom CSS in `theme.custom.scss`.
+- **Value:** Implemented "Poppins" font, modern cards, gradients, and custom icon styling.
+- **Change:** Updated `$activity-icon-colors` in `globals.variables.scss`.
+- **Value:** Curated "Darassa Purple" palette (purple, pink, deep blue) for course activities.
+- **Reason:** To replace the default rainbow colors with a cohesive premium brand palette.
+
+## 5. Feature Modifications
+
+### `src/core/features/courses/services/courses.ts`
+- **Change:** Modified `isDownloadCoursesDisabledInSite` to always return `false`.
+- **Reason:** To remove the default limit of 2 offline downloadable courses. This bypasses the check for `CORE_COURSES_DOWNLOAD_FEATURE_NAME` and `site.isOfflineDisabled()`, allowing unlimited offline course downloads.
+
+## 6. Documentation
+### `NOTIFICATIONS_FCM_SETUP.md`
+- **Change:** Created a guide for setting up Firebase Cloud Messaging (FCM).
+- **Reason:** To provide a cost-effective alternative to the default notification system (Airnotifier) which may require a subscription for high volume.
+## 7. Bug Fixes
+
+### Android Navigation Overlay Fix
+- **Change:** Enabled `AndroidEdgeToEdge` preference in `config.xml`.
+- **Change:** Updated `src/core/features/mainmenu/pages/menu/menu.scss` to dynamically calculate tab bar height including `safe-area-bottom`.
+- **Change:** Removed deprecated `ion-app` padding hack in `src/theme/globals.scss`.
+- **Reason:** To prevent the bottom navigation menu from being hidden behind the Android system navigation bar on newer Android versions (edge-to-edge mode).
+
+## 8. Localization
+### `moodle.config.json`
+- **Change:** Updated `default_lang`.
+- **Value:** `"fr"`
+- **Change:** Set `forcedefaultlanguage` to `true`.
+- **Reason:** To enforce French as the application language regardless of the device's system language Settings.

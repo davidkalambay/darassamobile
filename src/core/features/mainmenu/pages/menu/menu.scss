@@ -46,7 +46,8 @@ ion-tab-bar {
     --color-selected: var(--core-bottom-tabs-color-selected);
     --background-selected: var(--core-bottom-tabs-background-selected);
 
-    height: var(--menutabbar-size);
+    height: calc(var(--menutabbar-size) + var(--ion-safe-area-bottom));
+    padding-bottom: var(--ion-safe-area-bottom);
 }
 
 core-user-menu-button {
@@ -135,7 +136,7 @@ ion-tabs {
 
         @if ($core-always-show-main-menu) {
             ion-tab-bar {
-                height: var(--menutabbar-size) !important;
+                height: calc(var(--menutabbar-size) + var(--ion-safe-area-bottom)) !important;
                 visibility: visible !important;
                 transform: translateY(0) !important;
             }

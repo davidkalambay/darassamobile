@@ -1,13 +1,13 @@
 {
-    "app_id": "com.moodle.moodlemobile",
-    "appname": "Moodle Mobile",
+    "app_id": "com.darassa.academy",
+    "appname": "Darassa Academy",
     "versioncode": 51001,
     "versionname": "5.1.0",
     "cache_update_frequency_usually": 420000,
     "cache_update_frequency_often": 1200000,
     "cache_update_frequency_sometimes": 3600000,
     "cache_update_frequency_rarely": 43200000,
-    "default_lang": "en",
+    "default_lang": "fr",
     "languages": {
         "af": "Afrikaans",
         "ar": "العربية",
@@ -86,14 +86,19 @@
         "medium": 110,
         "high": 120
     },
-    "customurlscheme": "moodlemobile",
-    "sites": [],
+    "customurlscheme": "darassaacademy",
+    "sites": [
+        {
+            "url": "https://learn.darassa.academy",
+            "name": "Darassa Academy"
+        }
+    ],
     "multisitesdisplay": "",
     "sitefindersettings": {},
     "onlyallowlistedsites": false,
-    "forcedefaultlanguage": false,
+    "forcedefaultlanguage": true,
     "privacypolicy": "https://moodle.net/moodle-app-privacy/",
-    "notificoncolor": "#f98012",
+    "notificoncolor": "#7D256C",
     "enableanalytics": false,
     "enableonboarding": true,
     "forceColorScheme": "",
@@ -101,7 +106,7 @@
     "showTopLogo": "hidden",
     "ioswebviewscheme": "moodleappfs",
     "appstores": {
-        "android": "com.moodle.moodlemobile",
+        "android": "com.darassa.academy",
         "ios": "id633359593"
     },
     "wsrequestqueuelimit": 10,

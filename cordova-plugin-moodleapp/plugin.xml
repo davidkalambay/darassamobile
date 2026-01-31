@@ -37,6 +37,8 @@
         <source-file src="src/android/SecureStorage.java" target-dir="src/com/moodle/moodlemobile" />
         <source-file src="src/android/InstallReferrer.java" target-dir="src/com/moodle/moodlemobile" />
         <source-file src="src/android/PinchToZoom.java" target-dir="src/com/moodle/moodlemobile" />
+
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
     </platform>
 
     <platform name="ios">
