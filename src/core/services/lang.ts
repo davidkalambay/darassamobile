@@ -339,16 +339,16 @@ export class CoreLangProvider {
      * @returns Promise resolved with the selected language.
      */
     protected async detectLanguage(): Promise<string> {
+        // When the site forces a default language (e.g. branded app), always use it first.
+        if (CoreConstants.CONFIG.default_lang && CoreConstants.CONFIG.forcedefaultlanguage) {
+            return CoreConstants.CONFIG.default_lang;
+        }
+
         // Get current language from config (user might have changed it).
         try {
             return await CoreConfig.get<string>('current_language');
         } catch {
             // Try will return, ignore errors here to avoid nesting.
-        }
-
-        // User hasn't defined a language. If default language is forced, use it.
-        if (CoreConstants.CONFIG.default_lang && CoreConstants.CONFIG.forcedefaultlanguage) {
-            return CoreConstants.CONFIG.default_lang;
         }
 
         // No forced language, try to get current language from browser.

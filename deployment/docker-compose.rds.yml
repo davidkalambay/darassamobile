@@ -1,0 +1,35 @@
+# Optionnel : Moodle seul, base PostgreSQL externe (AWS RDS).
+# Usage après migration vers RDS :
+#   1. Renseigner dans .env : MOODLE_DATABASE_HOST, MOODLE_DATABASE_USER, MOODLE_DATABASE_PASSWORD, MOODLE_DATABASE_NAME
+#   2. docker compose -f docker-compose.rds.yml up -d
+
+services:
+  moodle:
+    image: docker.io/bitnami/moodle:${MOODLE_IMAGE_TAG:-5.0}
+    ports:
+      - "${HTTP_PORT:-80}:8080"
+      - "${HTTPS_PORT:-443}:8443"
+    environment:
+      MOODLE_DATABASE_TYPE: pgsql
+      MOODLE_DATABASE_HOST: ${MOODLE_DATABASE_HOST:?MOODLE_DATABASE_HOST requis (endpoint RDS)}
+      MOODLE_DATABASE_PORT_NUMBER: ${MOODLE_DATABASE_PORT_NUMBER:-5432}
+      MOODLE_DATABASE_USER: ${MOODLE_DATABASE_USER:?MOODLE_DATABASE_USER requis}
+      MOODLE_DATABASE_PASSWORD: ${MOODLE_DATABASE_PASSWORD:?MOODLE_DATABASE_PASSWORD requis}
+      MOODLE_DATABASE_NAME: ${MOODLE_DATABASE_NAME:?MOODLE_DATABASE_NAME requis}
+      ALLOW_EMPTY_PASSWORD: no
+    volumes:
+      - moodle_data:/bitnami/moodle
+      - moodledata_data:/bitnami/moodledata
+    networks:
+      - moodle_net
+    restart: unless-stopped
+
+volumes:
+  moodle_data:
+    driver: local
+  moodledata_data:
+    driver: local
+
+networks:
+  moodle_net:
+    driver: bridge

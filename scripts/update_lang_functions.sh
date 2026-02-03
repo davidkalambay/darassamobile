@@ -8,7 +8,12 @@ APPMODULENAME='local_moodlemobileapp'
 TOTAL_STRINGS=0
 LANGINDEX_STRINGS=0
 
-LANGPACKS_PATH='/tmp/moodleapp-lang'
+# Use /c/temp on Windows (Git Bash) so git clone can create the dir; else /tmp
+if [ -d /c/temp ] || [ -d /c ]; then
+    LANGPACKS_PATH='/c/temp/moodleapp-lang'
+else
+    LANGPACKS_PATH='/tmp/moodleapp-lang'
+fi
 
 function progressbar {
     let _progress=(${1}*100/100*100)/100
@@ -110,6 +115,7 @@ function load_langpacks {
 
         popd
     else
+        mkdir -p "$(dirname "$LANGPACKS_PATH")" 2>/dev/null || true
         git clone --depth 1 --single-branch --branch "langpack_$LANGVERSION" https://github.com/moodlehq/moodle-local_moodlemobileapp.git "$LANGPACKS_PATH"
          if [ $? -ne 0 ]; then
             echo "Cannot clone language repository"
