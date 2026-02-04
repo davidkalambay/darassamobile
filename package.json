@@ -146,7 +146,7 @@
         "angular-eslint": "20.3.0",
         "circular-dependency-plugin": "5.2.2",
         "concurrently": "9.2.1",
-        "cordova-android": "^14.0.1",
+        "cordova-android": "14.0.1",
         "cordova-plugin-moodleapp": "file:cordova-plugin-moodleapp",
         "cross-env": "10.0.0",
         "es-check": "9.4.4",
